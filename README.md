@@ -1,7 +1,7 @@
 # gis-search
 Galloping‑Interpolation Search (GIS)
 
-**Quick results show that GIS can be faster than binary search**
+**Quick bechmark results show that GIS can be faster than binary search**
 
 ```
 binary: ns/op = 89.5
