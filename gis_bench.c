@@ -1,4 +1,4 @@
-/* gis_bench.c  –  GIS vs. binary‑search micro‑benchmark */
+/* gis_bench.c  –  GIS vs. binary‑search :: lil' benchie, the benchmark */
 
 #define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
