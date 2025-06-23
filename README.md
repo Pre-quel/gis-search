@@ -14,3 +14,20 @@ STISLA bridges the gap between the theoretical elegance of interpolation search 
 
 **Keywords:** Search algorithms, interpolation search, adaptive data structures, learned indices, algorithm optimization
 
+---
+
+```
+STISLA Performance Benchmark
+Array size: 1000000 elements
+Lookup operations: 2000000
+
+Phase 1: Learning anchor points...
+Learned 2 anchor points
+
+Phase 2: Performance measurement...
+Results:
+  Binary search: 87.2 ns/operation
+  STISLA search: 7.5 ns/operation
+  Performance:   11.69x faster (2 anchors learned)
+```
+
