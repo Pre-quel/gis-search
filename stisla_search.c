@@ -58,8 +58,8 @@ static int anchor_insert(AnchorTable *T, int64_t v, size_t i){
     T->n++; return 0;
 }
 
-/*-------------- PRIS SEARCH --------------------------------------------------*/
-static size_t pris_search(const int64_t *arr, size_t n, int64_t key,
+/*-------------- STISLA --------------------------------------------------*/
+static size_t stisla_search(const int64_t *arr, size_t n, int64_t key,
                           AnchorTable *T, size_t tol)
 {
     /* fast‑path: array too small */
@@ -116,7 +116,7 @@ static size_t pris_search(const int64_t *arr, size_t n, int64_t key,
     return SIZE_MAX;
 }
 
-/*----------------------- BENCH ----------------------------------------------*/
+/*----------------------- LIL' BENCHiE ----------------------------------------------*/
 static inline uint64_t ns_now(void){
     struct timespec ts; clock_gettime(CLOCK_MONOTONIC,&ts);
     return (uint64_t)ts.tv_sec*1000000000ull+ts.tv_nsec;
@@ -154,13 +154,13 @@ int main(int ac,char**av){
 
     /* warm‑up */
     for(size_t i=0;i<Q;++i)
-        (void)pris_search(array,N,array[keys[i]],&T,tol);
+        (void)stisla_search(array,N,array[keys[i]],&T,tol);
 
     /* timed pass – PrIS */
     uint64_t t0=ns_now();
     volatile size_t sink=0;
     for(size_t i=0;i<Q;++i)
-        sink ^= pris_search(array,N,array[keys[i]],&T,tol);
+        sink ^= stisla_search(array,N,array[keys[i]],&T,tol);
     uint64_t pris_ns = ns_now()-t0;
 
     /* same queries – classic binary search */
